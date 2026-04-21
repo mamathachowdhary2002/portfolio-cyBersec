@@ -47,29 +47,49 @@
         /* --- Navigation --- */
         nav {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Mobile Default */
+            justify-content: center;
             align-items: center;
-            padding: 20px 8%;
+            padding: 15px 5%;
             background: rgba(0, 0, 0, 0.95);
             border-bottom: 2px solid var(--neon-red);
             position: sticky;
             top: 0;
             z-index: 100;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 20px 8%;
+            }
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--neon-red);
             text-shadow: 0 0 15px var(--neon-red);
+            text-align: center;
         }
 
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            padding: 0; 
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav ul li { margin: 5px 10px; }
+        
         nav ul li a {
             text-decoration: none;
             color: #fff;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             transition: 0.3s;
         }
@@ -77,16 +97,32 @@
 
         /* --- Hero --- */
         .hero {
-            height: 60vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             background: radial-gradient(circle, var(--matrix-glow) 0%, var(--dark-black) 70%);
+            padding: 20px;
         }
 
-        .hero h1 { font-size: 4rem; color: #fff; text-shadow: 0 0 20px var(--neon-red); margin: 0; }
+        @media (min-width: 768px) {
+            .hero { height: 60vh; }
+        }
+
+        .hero h1 { 
+            font-size: 2.5rem; /* Mobile */
+            color: #fff; 
+            text-shadow: 0 0 20px var(--neon-red); 
+            margin: 0; 
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 4rem; }
+        }
+
+        .hero p { font-size: 0.8rem; }
 
         /* --- Popup Modal --- */
         .modal {
@@ -97,19 +133,24 @@
             width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95);
             backdrop-filter: blur(10px);
+            overflow-y: auto;
         }
 
         .modal-content {
             background-color: #0a0a0a;
-            margin: 5% auto;
-            padding: 30px;
+            margin: 15% auto;
+            padding: 20px;
             border: 2px solid var(--neon-red);
-            width: 80%;
+            width: 85%;
             max-width: 600px;
             text-align: left;
             box-shadow: 0 0 30px var(--neon-red);
             position: relative;
-            border-radius: 20px; /* Curved edges for modal */
+            border-radius: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .modal-content { padding: 30px; margin: 5% auto; }
         }
 
         .modal-link {
@@ -120,8 +161,9 @@
             margin: 10px 0;
             border: 1px solid #333;
             transition: 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             border-radius: 10px;
+            word-wrap: break-word;
         }
 
         .modal-link:hover { 
@@ -131,35 +173,52 @@
             box-shadow: 0 0 10px var(--neon-red);
         }
 
-        .close-btn { position: absolute; top: 10px; right: 15px; color: var(--neon-red); cursor: pointer; font-size: 2rem; }
+        .close-btn { position: absolute; top: 5px; right: 15px; color: var(--neon-red); cursor: pointer; font-size: 1.5rem; }
 
         /* --- Universal Scroll Wrapper --- */
         .scroll-wrapper {
             display: flex;
             overflow-x: auto;
-            gap: 20px;
-            padding: 25px 0;
+            gap: 15px;
+            padding: 20px 0;
             scrollbar-width: thin;
             scrollbar-color: var(--neon-red) #111;
+            -webkit-overflow-scrolling: touch;
         }
 
         .scroll-wrapper::-webkit-scrollbar { height: 6px; }
         .scroll-wrapper::-webkit-scrollbar-thumb { background: var(--neon-red); border-radius: 10px; }
 
         /* --- Section Styling --- */
-        .section { padding: 40px 10%; border-bottom: 1px solid #111; }
-        .section-h { color: var(--neon-red); margin-bottom: 25px; font-size: 1.3rem; text-transform: uppercase; border-left: 4px solid var(--neon-red); padding-left: 15px; }
+        .section { padding: 30px 5%; border-bottom: 1px solid #111; }
+        
+        @media (min-width: 768px) {
+            .section { padding: 40px 10%; }
+        }
+
+        .section-h { 
+            color: var(--neon-red); 
+            margin-bottom: 25px; 
+            font-size: 1.1rem; 
+            text-transform: uppercase; 
+            border-left: 4px solid var(--neon-red); 
+            padding-left: 15px; 
+        }
 
         .card {
-            flex: 0 0 320px;
+            flex: 0 0 260px; /* Mobile width */
             background: #0a0a0a;
-            padding: 30px;
-            border: 1px solid var(--neon-red); /* Constant neon border */
+            padding: 20px;
+            border: 1px solid var(--neon-red);
             transition: 0.3s;
             cursor: pointer;
-            border-radius: 25px; /* Curved Edges */
-            text-align: center; /* Positioned in middle */
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); /* Glowing neon */
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+        }
+
+        @media (min-width: 768px) {
+            .card { flex: 0 0 320px; padding: 30px; }
         }
 
         .card:hover { 
@@ -167,8 +226,8 @@
             transform: translateY(-5px); 
         }
 
-        .card h3 { color: white; margin-top: 0; font-size: 0.9rem; border-bottom: 1px solid var(--neon-red); padding-bottom: 8px; }
-        .card p { font-size: 0.8rem; color: #999; }
+        .card h3 { color: white; margin-top: 0; font-size: 0.8rem; border-bottom: 1px solid var(--neon-red); padding-bottom: 8px; }
+        .card p { font-size: 0.75rem; color: #999; }
 
         .btn {
             margin-top: 20px;
@@ -180,6 +239,7 @@
             box-shadow: 0 0 15px var(--neon-red);
             font-family: inherit;
             border-radius: 10px;
+            font-size: 0.8rem;
         }
 
         .btn:hover { background: white; color: var(--neon-red); box-shadow: 0 0 25px white; }
@@ -187,15 +247,15 @@
         .cert-tag { 
             display: inline-block; 
             border: 1px solid var(--neon-red); 
-            padding: 5px 15px; 
+            padding: 5px 12px; 
             margin: 5px; 
-            font-size: 0.75rem; 
+            font-size: 0.7rem; 
             background: #111; 
-            border-radius: 20px; /* Curved tags */
+            border-radius: 20px;
             box-shadow: 0 0 5px var(--neon-red);
         }
 
-        footer { text-align: center; padding: 30px; color: #444; font-size: 0.7rem; }
+        footer { text-align: center; padding: 30px; color: #444; font-size: 0.6rem; }
 
     </style>
 </head>
@@ -207,14 +267,14 @@
             <h2 style="color:var(--neon-red); font-size: 1rem;">ACCESS_PROTOCOLS</h2>
             <a href="https://github.com" class="modal-link" target="_blank">GITHUB</a>
             <a href="https://linkedin.com/in/mamatha-g-atimi" class="modal-link" target="_blank">LINKEDIN</a>
-            <a href="mailto:your-email@example.com" class="modal-link">MAIL-pingme.mamathag@gmail.com</a>
+            <a href="mailto:pingme.mamathag@gmail.com" class="modal-link">MAIL-pingme.mamathag@gmail.com</a>
         </div>
     </div>
 
     <div id="htbModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('htbModal')">&times;</span>
-            <h2 style="color:var(--neon-red); margin-bottom: 20px;">[ HTB_PWNED_MACHINES ]</h2>
+            <h2 style="color:var(--neon-red); margin-bottom: 20px; font-size: 1rem;">[ HTB_PWNED_MACHINES ]</h2>
             <div class="modal-list">
                 <a href="https://github.com/mamathachowdhary2002/HTB-CTF/blob/078a87e3c2ae17516935f171c8a16650738c0572/Meow.pdf" class="modal-link" target="_blank">01_ Machine: Meow - Walkthrough</a>
                 <a href="https://github.com/mamathachowdhary2002/HTB-CTF/blob/16493ac3edaf9155242afbff88d87af21d817f92/fawn.pdf" class="modal-link" target="_blank">02_ Machine: Fawn - Walkthrough</a>
@@ -222,12 +282,14 @@
         </div>
     </div>
 
-    <div id="thmModal" class="modal">
+    <div id="otwbModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('thmModal')">&times;</span>
-            <h2 style="color:var(--neon-red); margin-bottom: 20px;">[ THM_COMPLETED_ROOMS ]</h2>
+            <span class="close-btn" onclick="closeModal('otwbModal')">&times;</span>
+            <h2 style="color:var(--neon-red); margin-bottom: 20px; font-size: 1rem;">[ THM_COMPLETED_ROOMS ]</h2>
             <div class="modal-list">
-                <a href="https://github.com/thm1" class="modal-link" target="_blank">01_ Room: RootMe - Walkthrough</a>
+                <a href="https://github.com/mamathachowdhary2002/OTW-CTF/blob/fb29c1e0d04deeeeb746e29854ab0fad1e54a709/Bandit_Level_0.pdf" class="modal-link" target="_blank">00_ Level: Bandit0 - Walkthrough</a>
+                <a href="https://github.com/mamathachowdhary2002/OTW-CTF/blob/e42c2c37e71cadec2722bedfed554d54c81ecb7e/Bandit_Level_1.pdf" class="modal-link" target="_blank">01_ Leval: Bandit1 - Walkthrough</a>
+                <a href="https://github.com/mamathachowdhary2002/OTW-CTF/blob/929afb1ff935179d2ce1032966a0ef73791798af/Bandit_Level_2.pdf" class="modal-link" target="_blank">02_ Leval: Bandit2 - Walkthrough</a>
             </div>
         </div>
     </div>
@@ -235,7 +297,7 @@
     <div id="picoModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('picoModal')">&times;</span>
-            <h2 style="color:var(--neon-red); margin-bottom: 20px;">[ PICO_SOLVED_CHALLENGES ]</h2>
+            <h2 style="color:var(--neon-red); margin-bottom: 20px; font-size: 1rem;">[ PICO_SOLVED_CHALLENGES ]</h2>
             <div class="modal-list">
                 <a href="https://github.com/pico1" class="modal-link" target="_blank">01_ Challenge: Transformation - Writeup</a>
             </div>
@@ -253,9 +315,9 @@
     </nav>
 
     <section class="hero">
-        <div class="blinking-text" style="color:var(--neon-red); margin-bottom: 10px; font-size: 0.8rem; font-weight: bold;">[ SECURITY_CLEARANCE: GRANTED ]</div>
+        <div class="blinking-text" style="color:var(--neon-red); margin-bottom: 10px; font-size: 0.7rem; font-weight: bold;">[ SECURITY_CLEARANCE: GRANTED ]</div>
         <h1>MAMATHA G</h1>
-        <p style="color:#666; font-size: 0.9rem;">DEVELOPER • RESEARCHER • ETHICAL HACKER</p>
+        <p style="color:#666; font-size: 0.8rem;">DEVELOPER • RESEARCHER • ETHICAL HACKER</p>
         <button class="btn" onclick="openModal('contactModal')">INITIALIZE CONTACT</button>
     </section>
 
@@ -278,15 +340,15 @@
         <div class="scroll-wrapper">
             <div class="card" onclick="openModal('htbModal')">
                 <h3>HackTheBox</h3>
-                <p>Successfully pawned 15+ machines. (Click to view walkthroughs)</p>
+                <p>Successfully pawned 15+ machines.</p>
             </div>
-            <div class="card" onclick="openModal('thmModal')">
-                <h3>TryHackMe</h3>
-                <p>Ranked in top 5% globally. (Click to view rooms)</p>
+            <div class="card" onclick="openModal('otwbModal')">
+                <h3>OverTheWire-Bandit</h3>
+                <p>SSH overloaded lab walkthroughs.</p>
             </div>
             <div class="card" onclick="openModal('picoModal')">
                 <h3>PicoCTF</h3>
-                <p>Solved complex cryptography challenges. (Click to view list)</p>
+                <p>Solved complex cryptography challenges.</p>
             </div>
         </div>
     </section>
@@ -296,7 +358,7 @@
         <div class="scroll-wrapper">
             <div class="card">
                 <h3>Flask Hardening</h3>
-                <p>Mitigating NoSQL injection in Flask-MongoDB architectures.</p>
+                <p>Mitigating NoSQL injection in Flask-MongoDB.</p>
             </div>
             <div class="card">
                 <h3>ISRO Standards</h3>
