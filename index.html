@@ -7,9 +7,9 @@
     <link rel="icon" type="image/png" href="logo.jpg">
     <style>
         :root {
-            --neon-red: #ff0000;
+            --neon-green: #00ff41;
             --dark-black: #050505;
-            --matrix-glow: rgba(255, 0, 0, 0.2);
+            --matrix-glow: rgba(0, 255, 65, 0.2);
         }
 
         body {
@@ -28,7 +28,7 @@
             top: 0; left: 0;
             width: 100vw; height: 100vh;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0), rgba(0, 0, 255, 0));
+                        linear-gradient(90deg, rgba(0, 255, 65, 0.05), rgba(0, 255, 0, 0), rgba(0, 0, 255, 0));
             background-size: 100% 2px, 3px 100%;
             pointer-events: none;
             z-index: 10;
@@ -47,12 +47,12 @@
         /* --- Navigation --- */
         nav {
             display: flex;
-            flex-direction: column; /* Mobile Default */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 15px 5%;
             background: rgba(0, 0, 0, 0.95);
-            border-bottom: 2px solid var(--neon-red);
+            border-bottom: 2px solid var(--neon-green);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -70,8 +70,8 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--neon-red);
-            text-shadow: 0 0 15px var(--neon-red);
+            color: var(--neon-green);
+            text-shadow: 0 0 15px var(--neon-green);
             text-align: center;
         }
 
@@ -93,7 +93,7 @@
             text-transform: uppercase;
             transition: 0.3s;
         }
-        nav ul li a:hover { color: var(--neon-red); text-shadow: 0 0 10px var(--neon-red); }
+        nav ul li a:hover { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
 
         /* --- Hero --- */
         .hero {
@@ -112,9 +112,9 @@
         }
 
         .hero h1 { 
-            font-size: 2.5rem; /* Mobile */
+            font-size: 2.5rem; 
             color: #fff; 
-            text-shadow: 0 0 20px var(--neon-red); 
+            text-shadow: 0 0 20px var(--neon-green); 
             margin: 0; 
         }
 
@@ -140,11 +140,11 @@
             background-color: #0a0a0a;
             margin: 15% auto;
             padding: 20px;
-            border: 2px solid var(--neon-red);
+            border: 2px solid var(--neon-green);
             width: 85%;
             max-width: 600px;
             text-align: left;
-            box-shadow: 0 0 30px var(--neon-red);
+            box-shadow: 0 0 30px var(--neon-green);
             position: relative;
             border-radius: 20px;
         }
@@ -167,13 +167,13 @@
         }
 
         .modal-link:hover { 
-            background: rgba(255, 0, 0, 0.2); 
-            border-color: var(--neon-red);
-            color: var(--neon-red);
-            box-shadow: 0 0 10px var(--neon-red);
+            background: rgba(0, 255, 65, 0.2); 
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
         }
 
-        .close-btn { position: absolute; top: 5px; right: 15px; color: var(--neon-red); cursor: pointer; font-size: 1.5rem; }
+        .close-btn { position: absolute; top: 5px; right: 15px; color: var(--neon-green); cursor: pointer; font-size: 1.5rem; }
 
         /* --- Universal Scroll Wrapper --- */
         .scroll-wrapper {
@@ -182,12 +182,12 @@
             gap: 15px;
             padding: 20px 0;
             scrollbar-width: thin;
-            scrollbar-color: var(--neon-red) #111;
+            scrollbar-color: var(--neon-green) #111;
             -webkit-overflow-scrolling: touch;
         }
 
         .scroll-wrapper::-webkit-scrollbar { height: 6px; }
-        .scroll-wrapper::-webkit-scrollbar-thumb { background: var(--neon-red); border-radius: 10px; }
+        .scroll-wrapper::-webkit-scrollbar-thumb { background: var(--neon-green); border-radius: 10px; }
 
         /* --- Section Styling --- */
         .section { padding: 30px 5%; border-bottom: 1px solid #111; }
@@ -197,24 +197,24 @@
         }
 
         .section-h { 
-            color: var(--neon-red); 
+            color: var(--neon-green); 
             margin-bottom: 25px; 
             font-size: 1.1rem; 
             text-transform: uppercase; 
-            border-left: 4px solid var(--neon-red); 
+            border-left: 4px solid var(--neon-green); 
             padding-left: 15px; 
         }
 
         .card {
-            flex: 0 0 260px; /* Mobile width */
+            flex: 0 0 260px; 
             background: #0a0a0a;
             padding: 20px;
-            border: 1px solid var(--neon-red);
+            border: 1px solid var(--neon-green);
             transition: 0.3s;
             cursor: pointer;
             border-radius: 25px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
         }
 
         @media (min-width: 768px) {
@@ -222,37 +222,37 @@
         }
 
         .card:hover { 
-            box-shadow: 0 0 30px var(--neon-red); 
+            box-shadow: 0 0 30px var(--neon-green); 
             transform: translateY(-5px); 
         }
 
-        .card h3 { color: white; margin-top: 0; font-size: 0.8rem; border-bottom: 1px solid var(--neon-red); padding-bottom: 8px; }
+        .card h3 { color: white; margin-top: 0; font-size: 0.8rem; border-bottom: 1px solid var(--neon-green); padding-bottom: 8px; }
         .card p { font-size: 0.75rem; color: #999; }
 
         .btn {
             margin-top: 20px;
             padding: 12px 30px;
-            background: var(--neon-red);
+            background: var(--neon-green);
             color: white;
             border: none;
             cursor: pointer;
-            box-shadow: 0 0 15px var(--neon-red);
+            box-shadow: 0 0 15px var(--neon-green);
             font-family: inherit;
             border-radius: 10px;
             font-size: 0.8rem;
         }
 
-        .btn:hover { background: white; color: var(--neon-red); box-shadow: 0 0 25px white; }
+        .btn:hover { background: white; color: var(--neon-green); box-shadow: 0 0 25px white; }
 
         .cert-tag { 
             display: inline-block; 
-            border: 1px solid var(--neon-red); 
+            border: 1px solid var(--neon-green); 
             padding: 5px 12px; 
             margin: 5px; 
             font-size: 0.7rem; 
             background: #111; 
             border-radius: 20px;
-            box-shadow: 0 0 5px var(--neon-red);
+            box-shadow: 0 0 5px var(--neon-green);
         }
 
         footer { text-align: center; padding: 30px; color: #444; font-size: 0.6rem; }
@@ -264,7 +264,7 @@
     <div id="contactModal" class="modal">
         <div class="modal-content" style="max-width: 320px; text-align: center;">
             <span class="close-btn" onclick="closeModal('contactModal')">&times;</span>
-            <h2 style="color:var(--neon-red); font-size: 1rem;">ACCESS_PROTOCOLS</h2>
+            <h2 style="color:var(--neon-green); font-size: 1rem;">ACCESS_PROTOCOLS</h2>
             <a href="https://github.com" class="modal-link" target="_blank">GITHUB</a>
             <a href="https://linkedin.com/in/mamatha-g-atimi" class="modal-link" target="_blank">LINKEDIN</a>
             <a href="mailto:pingme.mamathag@gmail.com" class="modal-link">MAIL-pingme.mamathag@gmail.com</a>
@@ -274,7 +274,7 @@
     <div id="htbModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('htbModal')">&times;</span>
-            <h2 style="color:var(--neon-red); margin-bottom: 20px; font-size: 1rem;">[ HTB_PWNED_MACHINES ]</h2>
+            <h2 style="color:var(--neon-green); margin-bottom: 20px; font-size: 1rem;">[ HTB_PWNED_MACHINES ]</h2>
             <div class="modal-list">
                 <a href="https://github.com/mamathachowdhary2002/HTB-CTF/blob/078a87e3c2ae17516935f171c8a16650738c0572/Meow.pdf" class="modal-link" target="_blank">01_ Machine: Meow - Walkthrough</a>
                 <a href="https://github.com/mamathachowdhary2002/HTB-CTF/blob/16493ac3edaf9155242afbff88d87af21d817f92/fawn.pdf" class="modal-link" target="_blank">02_ Machine: Fawn - Walkthrough</a>
@@ -285,7 +285,7 @@
     <div id="otwbModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('otwbModal')">&times;</span>
-            <h2 style="color:var(--neon-red); margin-bottom: 20px; font-size: 1rem;">[ OTW_COMPLETED_ROOMS ]</h2>
+            <h2 style="color:var(--neon-green); margin-bottom: 20px; font-size: 1rem;">[ OTWB_COMPLETED_ROOMS ]</h2>
             <div class="modal-list">
                 <a href="https://github.com/mamathachowdhary2002/OTW-CTF/blob/fb29c1e0d04deeeeb746e29854ab0fad1e54a709/Bandit_Level_0.pdf" class="modal-link" target="_blank">00_ Level: Bandit0 - Walkthrough</a>
                 <a href="https://github.com/mamathachowdhary2002/OTW-CTF/blob/e42c2c37e71cadec2722bedfed554d54c81ecb7e/Bandit_Level_1.pdf" class="modal-link" target="_blank">01_ Level: Bandit1 - Walkthrough</a>
@@ -299,7 +299,7 @@
     <div id="picoModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('picoModal')">&times;</span>
-            <h2 style="color:var(--neon-red); margin-bottom: 20px; font-size: 1rem;">[ PICO_SOLVED_CHALLENGES ]</h2>
+            <h2 style="color:var(--neon-green); margin-bottom: 20px; font-size: 1rem;">[ PICO_SOLVED_CHALLENGES ]</h2>
             <div class="modal-list">
                 <a href="https://github.com/pico1" class="modal-link" target="_blank">01_ Challenge: Transformation - Writeup</a>
             </div>
@@ -317,7 +317,7 @@
     </nav>
 
     <section class="hero">
-        <div class="blinking-text" style="color:var(--neon-red); margin-bottom: 10px; font-size: 0.7rem; font-weight: bold;">[ SECURITY_CLEARANCE: GRANTED ]</div>
+        <div class="blinking-text" style="color:var(--neon-green); margin-bottom: 10px; font-size: 0.7rem; font-weight: bold;">[ SECURITY_CLEARANCE: GRANTED ]</div>
         <h1>MAMATHA G</h1>
         <p style="color:#666; font-size: 0.8rem;">DEVELOPER • RESEARCHER • ETHICAL HACKER</p>
         <button class="btn" onclick="openModal('contactModal')">INITIALIZE CONTACT</button>
